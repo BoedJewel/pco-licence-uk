@@ -2,10 +2,38 @@
 import React from "react";
 import { FaFileAlt } from "react-icons/fa";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { Book, CalendarDays, LineChart, Map } from "lucide-react";
+import StepsSection from './StepSections';
 const mockTests = [
-    { id: 1, title: "SERU Grammer Mock Test – 2" },
-    { id: 2, title: "SERU Grammer Mock Test – 1" },
+    { id: 1, title: "SERU Grammer Mock Test – 1" },
+    { id: 2, title: "SERU Grammer Mock Test – 2" },
     { id: 3, title: "Theory Mock Test 6" },
+  ];
+  const promises = [
+    {
+      icon: <Map size={48} strokeWidth={1.5} />,
+      title: "Realistic Tests",
+      description:
+        "All of our questions are designed to closely match real test questions. We’ll make sure that there are no surprises at the test centre.",
+    },
+    {
+      icon: <LineChart size={48} strokeWidth={1.5} />,
+      title: "Progress Tracking",
+      description:
+        "Check your test results to see your progress and stay on track. Re-do the tests you’ve failed and gain confidence from the ones you’ve passed.",
+    },
+    {
+      icon: <Book size={48} strokeWidth={1.5} />,
+      title: "Self Paced",
+      description:
+        "All of our material is available to you from the very beginning. Study at your own speed and rest assured, we’re here to help every step of the way.",
+    },
+    {
+      icon: <CalendarDays size={48} strokeWidth={1.5} />,
+      title: "Convenient",
+      description:
+        "Read the handbook or complete our mock tests from any place, any device, any time. We are live 24/7 so you can prepare whenever you want.",
+    },
   ];
 const HomePage: React.FC = () => {
    
@@ -31,7 +59,7 @@ const HomePage: React.FC = () => {
       </div>
 
       {/* Stats Section */}
-
+      <StepsSection/>
     <section className="text-center py-16">
       <h3 className="text-lg font-semibold text-gray-900">Find out more about the test</h3>
       <h2 className="text-3xl font-bold text-blue-800 mt-2">
@@ -76,17 +104,33 @@ const HomePage: React.FC = () => {
         </button>
       </div>
     </section>
+{/*Promise Section  */}
 
-      <div className="flex justify-center gap-10 py-10 bg-white">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold">500+</h2>
-          <p>Real Exam Questions</p>
-        </div>
-        <div className="text-center">
-          <h2 className="text-2xl font-bold">100%</h2>
-          <p>Pass Rate</p>
-        </div>
+
+<section className="text-center py-12 bg-white">
+      <h2 className="text-3xl font-semibold mb-4">OUR PROMISE</h2>
+      <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-10">
+        We’ve helped thousands of people pass their topographical test. Here’s
+        how we’re going to make you pass too!
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-6">
+        {promises.map((promise, index) => (
+          <div
+            key={index}
+            className="flex flex-col items-center text-center p-6 border border-gray-200 rounded-lg shadow-lg transition-transform hover:scale-105"
+          >
+            <div className="bg-gradient-to-r from-red-500 to-yellow-500 p-4 rounded-full mb-4">
+              {promise.icon}
+            </div>
+            <h3 className="text-xl font-semibold mb-2">{promise.title}</h3>
+            <p className="text-gray-600">{promise.description}</p>
+          </div>
+        ))}
       </div>
+    </section>
+
+
+     
 
       {/* Course Overview */}
       <div className="py-16 px-4 text-center bg-gray-50">
@@ -105,7 +149,7 @@ const HomePage: React.FC = () => {
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-10 text-center">
-        <p>&copy; 2025 SERUonline. All Rights Reserved.</p>
+        <p>&copy; 2025 Developed By Birds of Eden. All Rights Reserved.</p>
       </footer>
     </div>
   );
